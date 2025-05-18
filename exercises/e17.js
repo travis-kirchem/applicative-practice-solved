@@ -10,12 +10,37 @@
 
 export function minBy(array, cb) {
   // Your code goes here...
+if (array.length === 0) return undefined;
 
+let minElement = array[0];
+let minValue = cb(minElement);
+
+for(var i = 0; i < array.length; i++) {
+  const currentWinner = cb(array[i]);
+  if (currentWinner < minValue) {
+    minValue = currentWinner;
+    minElement = array[i];
+  }
 }
+return minElement;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 export function maxBy(array, cb) {
   // Your code goes here...
+if (array.length === 0) return undefined;
 
+let maxElement = array[0];
+let maxValue = cb(maxElement);
+
+for(var i = 0; i < array.length; i++) {
+  const currentWinner = cb(array[i]);
+  if (currentWinner > maxValue) {
+    maxValue = currentWinner;
+    maxElement = array[i];
+  }
+}
+return maxElement;
 }
 
 
