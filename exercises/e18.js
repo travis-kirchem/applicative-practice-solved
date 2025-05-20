@@ -9,13 +9,11 @@ export function getGreatestDiscoveryYear(data) {
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
   const frequency = {};
 
-  // Step 1: Count frequencies of each year
   for (let asteroid of data.asteroids) {
     const year = asteroid.discoveryYear;
     frequency[year] = (frequency[year] || 0) + 1;
   }
 
-  // Step 2: Find the max frequency value
   let maxCount = 0;
   for (let year in frequency) {
     if (frequency[year] > maxCount) {
@@ -23,7 +21,6 @@ export function getGreatestDiscoveryYear(data) {
     }
   }
 
-  // Step 3: Collect all years with maxCount
   const mostFrequentYears = [];
   for (let year in frequency) {
     if (frequency[year] === maxCount) {

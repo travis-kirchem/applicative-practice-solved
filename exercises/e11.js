@@ -1,3 +1,4 @@
+import { assert } from "vitest";
 import { data } from "../data/data";
 
 // SPACE DATA EXERCISE 11
@@ -7,10 +8,12 @@ import { data } from "../data/data";
 
 export function lowMoonsPlanets(data) {
   // Your code goes here...
-  const lessThanTen = data.planets 
-  .filter(lessTenMoons => lessTenMoons.moons?.length < 10 || lessTenMoons.moons?.length == null)
-  .map(lessTenMoons => lessTenMoons.name);
-  return lessThanTen;
+  return data.planets.reduce((acc, planet) => {
+    if (planet.moons?.length < 10 || planet.moons?.length == null) {
+      acc.push(planet.name);
+    }
+    return acc;
+  }, []);
 }
 
 // === TEST YOURSELF ===

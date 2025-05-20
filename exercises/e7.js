@@ -6,10 +6,12 @@ import { data } from "../data/data";
 
 export function getPlanetsNamesWithMoons(data) {
   // Your code goes here...
-  const haveMoons = data.planets
-  .filter(haveMoonsYes => haveMoonsYes.moons)
-  .map(haveMoonsYes => haveMoonsYes.name)
-  return haveMoons;
+  return data.planets.reduce((acc, planet) => {
+    if (planet.moons) {
+      acc.push(planet.name);
+    }
+    return acc;
+  }, []);  
 }
 
 
